@@ -46,3 +46,9 @@ Versorium is planning a launch of a new project that will encompass the unique n
     </nft-card>
     <script src="https://unpkg.com/embeddable-nfts/dist/nft-card.min.js"></script>
 
+
+
+
+https://skyline.github.com/VersoriumX/2021
+
+
