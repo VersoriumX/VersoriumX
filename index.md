@@ -23,11 +23,6 @@ VXDAO https://client.aragon.org//versoriumx.aragonid.eth
 5. Provide unique customizable interface for artist to market their collections(Artist Landing Page)
 6. Be a part of a unique cultural shift in the way we pay for and interact with ART
 
-<nft-card
-    contractAddress="0x2953399124f0cbb46d2cbacd8a89cf0599974963"
-    tokenId="43671131871696986684119235437272042326500217390827176965947488406174345209616">
-    </nft-card>
-    <script src="https://unpkg.com/embeddable-nfts/dist/nft-card.min.js">
 
 
 
