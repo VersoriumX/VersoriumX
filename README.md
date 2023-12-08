@@ -1,5 +1,6 @@
 <!--
 **VersoriumX/VersoriumX** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+ VersoriumX © 2018 by Travis Jerome Goff is licensed under CC BY-SA 4.0 
 
 
 
@@ -46,7 +47,8 @@ Versorium is planning a launch of a new project that will encompass the unique n
     </nft-card>
     <script src="https://unpkg.com/embeddable-nfts/dist/nft-card.min.js"></script>
 
-
+https://github.com/VersoriumX
+ VersoriumX © 2018 by Travis Jerome Goff is licensed under CC BY-SA 4.0 
 
 
 https://skyline.github.com/VersoriumX/2021
