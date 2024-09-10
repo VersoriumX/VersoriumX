@@ -143,3 +143,82 @@ https://skyline.github.com/VersoriumX/2021
             return 0.8
         else:
             return 0.5>
+
+            # VersoriumX Profile Enhancer
+
+## Overview
+This app enhances your perceived profile by integrating your Big Five personality traits, connecting to reporting agencies, and leveraging blockchain technology via Alchemy API.
+
+## Features
+- **Big Five Personality Traits Integration**
+- **Reporting Agencies Connection**
+- **Alchemy API Integration**
+- **Profile Boosting and Confidence Building**
+
+## Setup
+
+### Prerequisites
+- Node.js and npm installed
+- Hardhat installed
+- Stripe API key
+- Alchemy API key
+
+### Installation
+1. **Clone the repository**:
+    ```bash
+    git clone https://github.com/your-repo/versoriumx-profile-enhancer.git
+    cd versoriumx-profile-enhancer
+    ```
+
+2. **Install dependencies**:
+    ```bash
+    npm install
+    ```
+
+3. **Configure environment variables**:
+    Create a `.env` file in the root directory and add your API keys:
+    ```env
+    STRIPE_SECRET_KEY=your_stripe_secret_key
+    ALCHEMY_API_KEY=your_alchemy_api_key
+    ```
+
+### Configuration
+Update `hardhat.config.js` with your network configurations and API keys:
+
+```javascript
+require("@nomiclabs/hardhat-waffle");
+require("@matterlabs/hardhat-zksync-solc");
+require("@matterlabs/hardhat-zksync-ethers");
+
+module.exports = {
+  solidity: "0.8.0",
+  zksync: {
+    version: "latest",
+    compilerSource: "binary",
+    settings: {},
+  },
+  networks: {
+    hardhat: {
+      forking: {
+        url: "https://eth-mainnet.alchemyapi.io/v2/YOUR_ALCHEMY_API_KEY", // Replace with your Alchemy API key
+        blockNumber: 14390000, // Optional: specify a block number to pin the fork
+      },
+    },
+    zkSyncTestnet: {
+      url: "https://zksync2-testnet.zksync.dev",
+      ethNetwork: "rinkeby", // Change to your desired Ethereum network
+      zksync: true,
+    },
+    ethereumMainnet: {
+      url: "https://mainnet.infura.io/v3/YOUR_INFURA_PROJECT_ID", // Replace with your Infura project ID
+      accounts: ["YOUR_PRIVATE_KEY"], // Replace with your wallet private key
+    },
+  },
+  etherscan: {
+    apiKey: "YOUR_ETHERSCAN_API_KEY", // Optional, for verifying contracts
+  },
+  sip10: {
+    baseUrl: "https://your-base-url.com", // Replace with your base URL
+  },
+};
+
