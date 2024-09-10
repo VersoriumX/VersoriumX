@@ -20,7 +20,7 @@
 name: Build and deploy Python app to Azure Web App
 
 env:
-  AZURE_WEBAPP_NAME: your-app-name  #VersoriumX 
+  AZURE_WEBAPP_NAME: VersoriumX  #VersoriumX 
   PYTHON_VERSION: '3.8'              # set this to the Python version to use
 
 on:
