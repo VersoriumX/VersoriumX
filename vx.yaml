@@ -1,4 +1,4 @@
-name: dotnet Build
+name: VersoriumX dotnet Build
 
 on:
   push:
