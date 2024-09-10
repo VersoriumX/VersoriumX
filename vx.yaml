@@ -19,3 +19,4 @@ jobs:
                 dotnet-version: '3.1.x'
 
         - run: dotnet build awesomeproject
+
