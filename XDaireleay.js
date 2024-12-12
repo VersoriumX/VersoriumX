@@ -33,7 +33,7 @@ let relayHttpProvider = fs.readFileSync("relayhttpprovider.env").toString()
 let transactions = {}
 
 const HDWalletProvider = require("truffle-hdwallet-provider")
-let DESKTOPMINERACCOUNT = 0
+let DESKTOPMINERACCOUNT = 0x608cfC1575b56a82a352f14d61be100FA9709D75
 
 let web3
 if(relayHttpProvider.indexOf("localhost")>=0||relayHttpProvider.indexOf("dai.poa.network")>=0){
