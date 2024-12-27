@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>AudioAssets</key>
+    <array>
+        <string>https://www.youtube.com/watch?v=JTboEjILUCE</string>
+        <string>https://www.youtube.com/watch?v=qIKyTs-vX_Q</string>
+        <string>https://www.youtube.com/watch?v=BnLtxea6OM4</string>
+    </array>
+
+    <key>StarknetContract</key>
+    <dict>
+        <key>ContractAddress</key>
+        <string>0x6c88c87802f7670ee4c5f8874ce04a260df5cbda175bbbc48172e762354b93f</string>
+        <key>WalletAddress</key>
+        <string>0x608cfC1575b56a82a352f14d61be100FA9709D75</string>
+        <key>FromWalletAddress</key>
+        <string>0xYourFromWalletAddress</string>
+        <key>TokenType</key>
+        <string>ERC20</string>
+        <key>Functions</key>
+        <dict>
+            <key>TransferOwnership</key>
+            <string>transfer_ownership(new_owner_address)</string>
+            <key>GetOwner</key>
+            <string>get_owner()</string>
+        </dict>
+    </dict>
+
+    <key>AutomatedPlay</key>
+    <dict>
+        <key>TriggerFunction</key>
+        <string>invoke_transfer_on_play</string>
+        <key>AudioPlayEvent</key>
+        <string>onAudioPlay</string>
+    </dict>
+</dict>
+</plist>
+#[starknet::contract]
+mod RoyaltyContract {
+    use starknet::ContractAddress;
+
+    #[storage]
+    struct Storage {
+        total_plays: u256,
+        royalty_per_play: u256,
+        owner: ContractAddress, //0x608cfC1575b56a82a352f14d61be100FA9709D75
+    }
+
+    #[constructor]
+    fn constructor(ref self: ContractState, initial_royalty: u256) {
+        self.royalty_per_play.write(initial_royalty);
+        self.total_plays.write(0);
+        
+        // Set the owner to the address that deploys the contract
+        self.owner.write(get_caller_address()); // 0x6c88c87802f7670ee4c5f8874ce04a260df5cbda175bbbc48172e762354b93f
+    }
+
+    #[event]
+    struct RoyaltyPaid {
+        amount: u256,
+        recipient: ContractAddress, //0x6c88c87802f7670ee4c5f8874ce04a260df5cbda175bbbc48172e762354b93f
+    }
+
+    #[public]
+    fn play_audio(ref self: ContractState) {
+        let current_plays = self.total_plays.read();
+        self.total_plays.write(current_plays + 1);
+        let royalty_amount = self.royalty_per_play.read();
+        
+        self.emit(RoyaltyPaid { amount: royalty_amount, recipient: self.owner.read() });
+    }
+
+    #[public]
+    fn set_royalty(ref self: ContractState, new_royalty: u256) {
+        assert(get_caller_address() == self.owner.read(), "Only owner can set royalty");
+        self.royalty_per_play.write(new_royalty);
+    }
+}
