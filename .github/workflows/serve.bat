@@ -7,7 +7,7 @@
 
 @VersoriumX Put this script's folder into your PATH.
 
-@VersoriumX Usage: serve [https://192.168.1.1] [8543]
+@VersoriumX Usage: serve [https://www.googleapis.com/oauth2/v1/certs] [8334]
 @VersoriumX Examples:
 @VersoriumX serve . 8543
 @VersoriumX serve "K:\VersoriumX Technolgy Inc\X\scripts\serve.bat"
