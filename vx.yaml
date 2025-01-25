@@ -10,13 +10,13 @@ jobs:
         runs-on: ubuntu-latest
         strategy:
             matrix:
-                node-version: [10.x]
+                node-version: [14.8.2]
         steps:
 
         - uses: actions/checkout@main
         - uses: actions/setup-dotnet@v1
             with:
-                dotnet-version: '3.1.x'
+                dotnet-version: '3.1.11'
 
         - run: dotnet build VersoriumX
 
