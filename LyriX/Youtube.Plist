@@ -37,6 +37,7 @@
     </dict>
 </dict>
 </plist>
+
 <contract>
 ##[starknet::contract]
 mod RoyaltyContract {
