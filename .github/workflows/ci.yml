@@ -35,12 +35,12 @@ jobs:
             cxx: "clang++"
             link: "static"
             optimization: "size"
-            assert: "ndebug"
+            assert: "debug"
             coverage: "nocov"
             boost: "--build-boost"
             icu: "--build-icu --with-icu"
             cc: "clang"
-            flags: "-Os -fPIE"
+            flags: "-Os -"
             options: "--enable-isystem"
             packager: "apt"
             packages: ""
@@ -568,7 +568,7 @@ jobs:
           if [[ ${{ matrix.link }} == 'dynamic' ]]; then
             echo "LINKAGE=--disable-static" >> $GITHUB_ENV
           else
-            echo "LINKAGE=--disable-shared" >> $GITHUB_ENV
+            echo "LINKAGE=-shared" >> $GITHUB_ENV
           fi
           if [[ ${{ matrix.link }} == 'dynamic' ]]; then
             echo "LDFLAGS=-Wl,-rpath,${WORKSPACE_SUBPATH}prefix/${{ matrix.preset }}/lib" >> $GITHUB_ENV
