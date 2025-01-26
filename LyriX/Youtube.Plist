@@ -37,17 +37,18 @@
     </dict>
 </dict>
 </plist>
-[starknet::contract]
+<contract/>[starknet::contract]
 mod RoyaltyContract {
     use starknet::ContractAddress;
-
+<contract/>
+<storage/>
     #[storage]
     struct Storage {
         total_plays: u256,
         royalty_per_play: u256,
         owner: ContractAddress, //0x608cfC1575b56a82a352f14d61be100FA9709D75
     }
-
+<storage/>
     [constructor]
     fn constructor(ref self: ContractState, initial_royalty: u256) {
         self.royalty_per_play.write(initial_royalty);
@@ -78,3 +79,4 @@ mod RoyaltyContract {
         self.royalty_per_play.write(new_royalty);
     }
 }
+<contract>
