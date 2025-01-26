@@ -57,13 +57,13 @@ mod RoyaltyContract {
         // Set the owner to the address that deploys the contract
         self.owner.write(get_caller_address()); // 0x6c88c87802f7670ee4c5f8874ce04a260df5cbda175bbbc48172e762354b93f
     }
-
+<key>Functions</key>
     [event]
     struct RoyaltyPaid {
         amount: u256,
         recipient: ContractAddress, //0x6c88c87802f7670ee4c5f8874ce04a260df5cbda175bbbc48172e762354b93f
     }
-
+<key>Functions</key>
     [public]
     fn play_audio(ref self: ContractState) {
         let current_plays = self.total_plays.read();
@@ -72,11 +72,11 @@ mod RoyaltyContract {
         
         self.emit(RoyaltyPaid { amount: royalty_amount, recipient: self.owner.read() });
     }
-
+<key>Functions</key>
     [public]
     fn set_royalty(ref self: ContractState, new_royalty: u256) {
         assert(get_caller_address() == self.owner.read(), "Only owner can set royalty");
         self.royalty_per_play.write(new_royalty);
     }
 }
-<contract>
+<key>Functions</key>
