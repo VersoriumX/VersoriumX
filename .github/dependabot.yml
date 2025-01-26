@@ -1,0 +1,22 @@
+# To get started with Dependabot version updates, you'll need to specify which
+# package ecosystems to update and where the package manifests are located.
+# Please see the documentation for all configuration options:
+# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+version: 2
+updates:
+  - package-ecosystem: "npm" # Specify the package ecosystem (e.g., npm, pip, etc.)
+    directory: "/" # Location of package manifests (root of the repository)
+    schedule:
+      interval: "weekly" # Check for updates weekly
+  - package-ecosystem: "pip" # Example for Python packages
+    directory: "/" # Location of package manifests (root of the repository)
+    schedule:
+      interval: "weekly" # Check for updates weekly
+  - package-ecosystem: "maven" # Example for Java packages
+    directory: "/" # Location of package manifests (root of the repository)
+    schedule:
+      interval: "weekly" # Check for updates weekly
+  - package-ecosystem: "docker" # Example for Docker images
+    directory: "/" # Location of Dockerfile
+    schedule:
+      interval: "weekly" # Check for updates weekly
