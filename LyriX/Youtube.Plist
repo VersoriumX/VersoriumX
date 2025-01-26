@@ -37,19 +37,22 @@
     </dict>
 </dict>
 </plist>
-<contract/>
+<contract>
 ##[starknet::contract]
 mod RoyaltyContract {
     use starknet::ContractAddress;
-<contract/>
-<storage/>
+</contract>
+
+<storage>
     #[storage]
     struct Storage {
         total_plays: u256,
         royalty_per_play: u256,
-        owner: ContractAddress, //0x608cfC1575b56a82a352f14d61be100FA9709D75
+        owner: ContractAddress, // 0x608cfC1575b56a82a352f14d61be100FA9709D75
     }
-<storage/>
+</storage>
+
+<constructor>
     [constructor]
     fn constructor(ref self: ContractState, initial_royalty: u256) {
         self.royalty_per_play.write(initial_royalty);
@@ -58,13 +61,21 @@ mod RoyaltyContract {
         // Set the owner to the address that deploys the contract
         self.owner.write(get_caller_address()); // 0x6c88c87802f7670ee4c5f8874ce04a260df5cbda175bbbc48172e762354b93f
     }
+</constructor>
+
 <key>Functions</key>
+
+<event>
     [event]
     struct RoyaltyPaid {
         amount: u256,
-        recipient: ContractAddress, //0x6c88c87802f7670ee4c5f8874ce04a260df5cbda175bbbc48172e762354b93f
+        recipient: ContractAddress, // 0x6c88c87802f7670ee4c5f8874ce04a260df5cbda175bbbc48172e762354b93f
     }
+</event>
+
 <key>Functions</key>
+
+<function>
     [public]
     fn play_audio(ref self: ContractState) {
         let current_plays = self.total_plays.read();
@@ -73,11 +84,16 @@ mod RoyaltyContract {
         
         self.emit(RoyaltyPaid { amount: royalty_amount, recipient: self.owner.read() });
     }
+</function>
+
 <key>Functions</key>
+
+<function>
     [public]
     fn set_royalty(ref self: ContractState, new_royalty: u256) {
         assert(get_caller_address() == self.owner.read(), "Only owner can set royalty");
         self.royalty_per_play.write(new_royalty);
     }
-}
+</function>
+
 <key>Functions</key>
