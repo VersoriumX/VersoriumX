@@ -32,9 +32,18 @@ name = "VersoriumX-ArtistX"
 url = "https://ArtistX.com/simple/"
 
 [tool.black]
-line-length = 88
-target-version = ["py38"]
-skip-string-normalization = true
+line-length = 88  # Keep the line length at 88 characters for readability
+target-version = ["py38"]  # Target Python 3.8 for compatibility
+skip-string-normalization = false  # Normalize string quotes for consistency
+include = '\.pyi?$'  # Only include Python files and ignore others
+exclude = '''
+/(
+    \.git
+    | __pycache__
+    | build
+    | dist
+)/
+'''  # Exclude certain directories to avoid formatting unnecessary files
 
 [tool.mypy]
 files = "ArtistX"
