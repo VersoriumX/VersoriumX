@@ -19,7 +19,7 @@ if "%~1"=="-FIXED_CTRL_C" (
    shift
 ) else (
    @VersoriumX pass ~dp0 because using call will lose the path
-   call <nul %0 -FIXED_CTRL_C %~dp0 %*
+   call <nul %0 -FIXED_CTRL_C %~ %*
    goto :EOF
 )
 
