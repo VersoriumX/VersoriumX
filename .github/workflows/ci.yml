@@ -1,20 +1,11 @@
-###############################################################################
-#  Copyright (c) 2014-2023 libbitcoin-network developers (see COPYING).
-#
-#         GENERATED SOURCE CODE, DO NOT EDIT EXCEPT EXPERIMENTALLY
-#
-###############################################################################
-
 name: Continuous Integration Build
 
-on: [ pull_request, push, workflow_dispatch ]
+on: [pull_request, push, workflow_dispatch]
 
 jobs:
   autotools:
-
     strategy:
       fail-fast: false
-
       matrix:
         include:
           - os: ubuntu-20.04
@@ -40,7 +31,7 @@ jobs:
             boost: "--build-boost"
             icu: "--build-icu --with-icu"
             cc: "clang"
-            flags: "-Os -"
+            flags: "-Os -fPIE"
             options: "--enable-isystem"
             packager: "apt"
             packages: ""
@@ -101,7 +92,6 @@ jobs:
             packager: "brew"
             packages: ""
 
-
     runs-on: ${{ matrix.os }}
 
     env:
@@ -109,7 +99,7 @@ jobs:
       CXX: '${{ matrix.cxx }}'
       CFLAGS: '${{ matrix.flags }}'
       CXXFLAGS: '${{ matrix.flags }}'
-      CI_REPOSITORY: '${{ github.repository }}'
+      CI_REPOSITORY: 'versoriumx'  # Update to your repo name
 
     steps:
       - name: Checkout repository
@@ -138,16 +128,7 @@ jobs:
           if [[ ${{ matrix.assert }} == 'ndebug' ]]; then
             echo "ASSERT_NDEBUG=--enable-ndebug" >> $GITHUB_ENV
           else
-            echo "ASSERT_NDEBUG=--disable-ndebug" >> $GITHUB_ENV
-          fi
-          if [[ ${{ matrix.link }} == 'dynamic' ]]; then
-            echo "LINKAGE=--disable-static" >> $GITHUB_ENV
-          else
-            echo "LINKAGE=--disable-shared" >> $GITHUB_ENV
-          fi
-          if [[ ${{ matrix.link }} == 'dynamic' ]]; then
-            echo "LDFLAGS=-Wl,-rpath,${WORKSPACE_SUBPATH}prefix/lib" >> $GITHUB_ENV
-          fi
+            echo "ASSERT_NDEBUG
 
       - name: Display Compiler details
         shell: bash
