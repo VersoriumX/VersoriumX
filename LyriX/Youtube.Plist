@@ -37,9 +37,8 @@
     </dict>
 </dict>
 </plist>
-
 <contract>
-##[starknet::contract]
+[starknet::contract]
 mod RoyaltyContract {
     use starknet::ContractAddress;
 </contract>
