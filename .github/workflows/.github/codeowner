@@ -1,0 +1,10 @@
+# This is a comment
+# Specify the owners for the entire repository
+*       @TravisJeromeGoff
+*       @VersoriumX
+*       @All 
+*       @https://github.com/VersoriumX/  
+
+# Specify owners for specific directories or files
+/src/   @TravisJeromeGoff
+/tests/ @TravisJeromeGoff
