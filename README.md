@@ -62,7 +62,7 @@ All work posted must be original compositions, as federal law stipulates. For mo
 
 VersoriumX is owned by Travis Jerome Goff, a BMI award-winning singer/songwriter from Nashville, TN. Versorium is planning to launch a new project that will cater to the unique needs of creators while providing a solution for audience engagement using blockchain technology.
 
-<!---
+<!-
 [VersoriumX201](https://user-images.githubusercontent.com/99358631/155195402-166812a7-abc7-489b-b5b4-2e7869bd661d.png)
 
 </script>
@@ -385,7 +385,7 @@ Libbitcoin requires a C++11 compiler, which means Visual Studio 2013 (with a pre
 
 Dependencies apart from the libbitcoin libraries are available as [NuGet packages](https://www.nuget.org):
 
-* Packages maintained by [sergey.shandar](http://www.nuget.org/profiles/sergey.shandar)
+* Packages maintained by [sergey.shandar](http://www.nuget.org/profiles/versoriumx)
  * [boost](http://www.nuget.org/packages/boost)
  * [boost\_chrono-vc141](http://www.nuget.org/packages/boost_chrono-vc141)
  * [boost\_date\_time-vc141](http://www.nuget.org/packages/boost_date_time-vc141)
@@ -399,7 +399,6 @@ Dependencies apart from the libbitcoin libraries are available as [NuGet package
  * [boost\_system-vc141](http://www.nuget.org/packages/boost_system-vc141)
  * [boost\_thread-vc141](http://www.nuget.org/packages/boost_thread-vc141)
  * [boost\_unit\_test\_framework-vc141](http://www.nuget.org/packages/boost_unit_test_framework-vc141)
-* Packages maintained by [evoskuil](http://www.nuget.org/profiles/evoskuil)
  * [secp256k1\_vc141](http://www.nuget.org/packages/secp256k1_vc141)
 
 The packages can be viewed using the [NuGet package manager](http://docs.nuget.org/docs/start-here/managing-nuget-packages-using-the-dialog) from the libbitcoin solution. The package manager will prompt for download of any missing packages.
@@ -416,7 +415,7 @@ The libbitcoin dynamic (DLL) build configurations do not compile, as the exports
 
 #### Optional: Building secp256k1
 
-The secp256k1 package above is maintained using the same [Visual Studio template](https://github.com/evoskuil/visual-studio-template) as all libbitcoin libraries. If so desired it can be built locally, in the same manner as libbitcoin.
+The secp256k1 package above is maintained using the same [Visual Studio template](https://github.com/versoriumx/visual-studio-template) as all libbitcoin libraries. If so desired it can be built locally, in the same manner as libbitcoin.
 
 * [libbitcoin/secp256k1/version7](https://github.com/libbitcoin/secp256k1/tree/version7/builds/msvc)
 
