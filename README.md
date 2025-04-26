@@ -62,8 +62,8 @@ All work posted must be original compositions, as federal law stipulates. For mo
 
 VersoriumX is owned by Travis Jerome Goff, a BMI award-winning singer/songwriter from Nashville, TN. Versorium is planning to launch a new project that will cater to the unique needs of creators while providing a solution for audience engagement using blockchain technology.
 
-<!-
-![VersoriumX201](https://user-images.githubusercontent.com/99358631/155195402-166812a7-abc7-489b-b5b4-2e7869bd661d.png)
+<
+[VersoriumX201](https://user-images.githubusercontent.com/99358631/155195402-166812a7-abc7-489b-b5b4-2e7869bd661d.png)
 
 </script>
 <nft-card
