@@ -83,31 +83,6 @@ https://skyline.github.com/VersoriumX/2021
 
    <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:EthereumX" rel="cc:attributionURL" href="https://github.com/VersoriumX">VersoriumX</a> by <span property="cc:attributionName">Travis Jerome Goff</span> is licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1"></a></p> 
 
-    def _calculate_social_connections_score(self):
-        if len(self.social_connections_list) > 50:
-            return 1.0
-        elif len(self.social_connections_list) > 20:
-            return 0.8
-        else:
-            return 0.5
-
-    def _calculate_luxury_lifestyle_score(self):
-        if len(self.luxury_lifestyle) > 5:
-            return 1.0
-        elif len(self.luxury_lifestyle) > 2:
-            return 0.8
-        else:
-            return 0.5
-
-    def _calculate_personal_branding_score(self):
-        if self.personal_branding == "Influencer" or self.personal_branding == "Thought Leader":
-            return 1.0
-        elif self.personal_branding == "Author" or self.personal_branding == "Speaker":
-            return 0.8
-        else:
-            return 0.5>
-
-            # VersoriumX Profile Enhancer
 
 ## Overview
 This app enhances your perceived profile by integrating your Big Five personality traits, connecting to reporting agencies, and leveraging blockchain technology via Alchemy API.
@@ -186,7 +161,6 @@ module.exports = {
 };
 [![Build Status](https://github.com/libbitcoin/libbitcoin-network/actions/workflows/ci.yml/badge.svg?branch=version3)](https://github.com/libbitcoin/libbitcoin-network/actions/workflows/ci.yml)
 
-[![Coverage Status](https://coveralls.io/repos/libbitcoin/libbitcoin-network/badge.svg?branch=version3)](https://coveralls.io/r/libbitcoin/libbitcoin-network?branch=version3)
 
 # Libbitcoin System
 
