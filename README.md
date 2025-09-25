@@ -1,6 +1,7 @@
 
 **VersoriumX/VersoriumX** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
+# The VersoriumX Project is an innovative platform that seamlessly integrates cutting-edge AI capabilities with decentralized Web3 technologies. It features an AI-driven search engine for on-chain and off-chain data, an interactive Vyper smart contract compiler, secure user authentication via Wallet Connect, and robust decentralized storage powered by Pinata for IPFS. The project is deeply tied to versoriumx.eth, serving as a central identity for key project functionalities and interactions within the Ethereum ecosystem.
 
 
 # NFTs with Royalties: A Solution for Content Creators
