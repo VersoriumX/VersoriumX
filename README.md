@@ -9,8 +9,6 @@
      * ### Key Features & Benefits * Transparent Royalties: Ensure transparent royalty distribution via smart contracts. * Content Protection: Secure content protection through decentralized storage and blockchain verification.
      * * Efficient Search: Quickly find music copyrights and ownership details with our AI-powered search engine. * Creator Control: Maintain control over royalty streams and engage your audience through a dedicated API. We believe this approach will position VersoriumX as a valuable platform for music creators. 
 
-### The VersoriumX Project is an innovative platform that seamlessly integrates cutting-edge AI capabilities with decentralized Web3 technologies. It features an AI-driven search engine for on-chain and off-chain data, an interactive Vyper smart contract compiler, secure user authentication via Wallet Connect, and robust decentralized storage powered by Pinata for IPFS. The project is deeply tied to versoriumx.eth, serving as a central identity for key project functionalities and interactions within the Ethereum ecosystem.
-
 
 # NFTs with Royalties: A Solution for Content Creators
 
@@ -69,10 +67,10 @@ All work posted must be original compositions, as federal law stipulates. For mo
 
 ## About VersoriumX
 
-VersoriumX is owned by Travis Jerome Goff, a BMI award-winning singer/songwriter from Nashville, TN. Versorium is planning to launch a new project that will cater to the unique needs of creators while providing a solution for audience engagement using blockchain technology.
+###VersoriumX is owned by Travis Jerome Goff, a BMI award-winning singer/songwriter from Nashville, TN. Versorium is planning to launch a new project that will cater to the unique needs of creators while providing a solution for audience engagement using blockchain technology.
 
 <!-
-[VersoriumX201](https://user-images.githubusercontent.com/99358631/155195402-166812a7-abc7-489b-b5b4-2e7869bd661d.png)
+$[VersoriumX201](https://user-images.githubusercontent.com/99358631/155195402-166812a7-abc7-489b-b5b4-2e7869bd661d.png)
 
 </script>
 <nft-card
@@ -84,14 +82,15 @@ VersoriumX is owned by Travis Jerome Goff, a BMI award-winning singer/songwriter
 
 
 
-https://skyline.github.com/VersoriumX/2021
+###https://skyline.github.com/VersoriumX/2021
 
  VersoriumX © 2014 by Travis Jerome Goff is licensed under CC BY-SA 4.0 
 
   VersoriumX © 2014 by Travis Jerome Goff is licensed under CC BY-SA 4.0. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/
 
-   <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:EthereumX" rel="cc:attributionURL" href="https://github.com/VersoriumX">VersoriumX</a> by <span property="cc:attributionName">Travis Jerome Goff</span> is licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1"></a></p> 
-
+  ### <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:EthereumX" rel="cc:attributionURL" href="https://github.com/VersoriumX">VersoriumX</a> by <span property="cc:attributionName">Travis Jerome Goff</span> is licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1"></a></p> 
+#Other Projects
+### The VersoriumX Project is an innovative platform that seamlessly integrates cutting-edge AI capabilities with decentralized Web3 technologies. It features an AI-driven search engine for on-chain and off-chain data, an interactive Vyper smart contract compiler, secure user authentication via Wallet Connect, and robust decentralized storage powered by Pinata for IPFS. The project is deeply tied to versoriumx.eth, serving as a central identity for key project functionalities and interactions within the Ethereum ecosystem.
 
 ## Overview
 This app enhances your perceived profile by integrating your Big Five personality traits, connecting to reporting agencies, and leveraging blockchain technology via Alchemy API.
