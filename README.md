@@ -402,3 +402,16 @@ The secp256k1 package above is maintained using the same [Visual Studio template
 * [libbitcoin/secp256k1/version7](https://github.com/libbitcoin/secp256k1/tree/version7/builds/msvc)
 
 This change is properly accomplished by disabling the "NuGet Dependencies" in the Visual Studio properties user interface and then importing `secp256k1.import.props`, which references `secp256k1.import.xml`.
+
+
+# VersoriumX Intelligent Security Persona – Sentinel
+
+## Configuration (optional)
+
+| Key                     | Value                     | Description |
+|-------------------------|---------------------------|-------------|
+| `malware-signatures`    | `https://example.com/malware-signatures.json` | URL of a JSON file containing known malicious hashes. |
+| `dependency-updater`    | `renovate`                | Tool used to open PRs for safe dependency upgrades. |
+| `quarantine-branch`     | `sentinel/quarantine`     | Temporary branch where quarantined files are stored. |
+| `warning-message`       | `VersoriumX security Panel has quarantined your activity` | Message shown to the offender. |
+
