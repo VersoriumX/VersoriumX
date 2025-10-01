@@ -1,0 +1,147 @@
+name: VersoriumX Sentinel
+
+on:
+  push:
+    branches: [ "main", "master", "VersoriumX-DAO", "989" ]
+  pull_request:
+    branches: [ "main", "master", "VersoriumX-DAO" ]
+  schedule:
+    - cron: '0 3 * * *'   # daily at 03:00 UTC
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+  security-events: write
+  actions: read
+
+jobs:
+  sentinel:
+    runs-on: ubuntu-latest
+    steps:
+      # -------------------------------------------------
+      # 1️⃣ Checkout
+      # -------------------------------------------------
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # -------------------------------------------------
+      # 2️⃣ Load Sentinel config from SECURITY‑SENTINEL.md
+      # -------------------------------------------------
+      - name: Parse Sentinel config
+        id: config
+        run: |
+          #!/usr/bin/env node
+          const fs = require('fs');
+          const md = fs.readFileSync('SECURITY-SENTINEL.md', 'utf8');
+          const table = md.match(/\|[\s\S]*?\|/g)[0];
+          const rows = table.trim().split('\n').slice(2);
+          const cfg = {};
+          rows.forEach(r => {
+            const [, key, value] = r.split('|').map(s=>s.trim());
+            cfg[key] = value;
+          });
+          console.log('::set-output name=malware_url::' + (cfg['malware-signatures']||''));
+          console.log('::set-output name=quarantine_branch::' + (cfg['quarantine-branch']||'sentinel/quarantine'));
+          console.log('::set-output name=warning_message::' + (cfg['warning-message']||'VersoriumX security Panel has quarantined your activity'));
+
+      # -------------------------------------------------
+      # 3️⃣ Static analysis – clj‑watson
+      # -------------------------------------------------
+      - name: Dependency scan (clj‑watson)
+        uses: clj-holmes/clj-watson-action@39b8ed306f2c125860cf6e69b6939363689f998c
+        with:
+          clj-watson-sha: "65d928c"
+          clj-watson-tag: "v4.0.1"
+          database-strategy: github-advisory
+          aliases: clojure-lsp,test
+          deps-edn-path: deps.edn
+          suggest-fix: true
+          output-type: sarif
+          output-file: clj-watson-results.sarif
+          fail-on-result: false
+
+      # -------------------------------------------------
+      # 4️⃣ Container & OS scan – Trivy
+      # -------------------------------------------------
+      - name: Install Trivy
+        run: |
+          curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin
+
+      - name: Scan repository files for malware signatures
+        env:
+          MALWARE_URL: ${{ steps.config.outputs.malware_url }}
+        run: |
+          mkdir -p trivy-results
+          trivy fs --security-checks vuln,config,secret \
+            --format sarif \
+            --output trivy-results/trivy.sarif .
+          # Optional: download external signatures and compare hashes
+          if [ -n "$MALWARE_URL" ]; then
+            curl -sSL "$MALWARE_URL" -o /tmp/malware.json
+            # Simple hash check (example)
+            grep -E -f <(jq -r '.hashes[]' /tmp/malware.json) -R . || true
+          fi
+
+      # -------------------------------------------------
+      # 5️⃣ Upload SARIF results (GitHub Security tab)
+      # -------------------------------------------------
+      - name: Upload SARIF files
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: |
+            clj-watson-results.sarif
+            trivy-results/trivy.sarif
+          wait-for-processing: true
+
+      # -------------------------------------------------
+      # 6️⃣ Mousetrap – quarantine prohibited code
+      # -------------------------------------------------
+      - name: Mousetrap quarantine
+        id: mousetrap
+        env:
+          QUARANTINE_BRANCH: ${{ steps.config.outputs.quarantine_branch }}
+          WARNING_MSG: ${{ steps.config.outputs.warning_message }}
+        run: |
+          #!/usr/bin/env bash
+          set -euo pipefail
+
+          # Define patterns that indicate piracy/hacking attempts
+          declare -a bad_patterns=(
+            "curl\s+.*\s+http[s]?://.*(pirate|crack|warez)"
+            "wget\s+.*\s+http[s]?://.*(pirate|crack|warez)"
+            "ssh\s+.*\s+.*@.*(evil|attacker)"
+            "nc\s+.*\s+.*(evil|attacker)"
+            "eval$[^)]*$"
+            "new\s+Function$[^)]*$"
+          )
+
+          echo "Scanning for prohibited patterns..."
+          violations=0
+          while IFS= read -r -d '' file; do
+            for pat in "${bad_patterns[@]}"; do
+              if grep -En "$pat" "$file" >/dev/null; then
+                echo "::error file=$file::Prohibited pattern detected: $pat"
+                echo "$WARNING_MSG"
+                ((violations++))
+                # Move the offending file to a quarantine folder on a temp branch
+                git checkout -b "$QUARANTINE_BRANCH" || git checkout "$QUARANTINE_BRANCH"
+                mkdir -p quarantine
+                git mv "$file" "quarantine/$(basename "$file")"
+                git commit -m "Quarantine $file – $WARNING_MSG"
+                git push origin "$QUARANTINE_BRANCH"
+                # Comment on the PR/commit
+                if [ "${{ github.event_name }}" = "pull_request" ]; then
+                  PR=${{ github.event.pull_request.number }}
+                  curl -s -X POST \
+                    -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+                    -H "Accept: application/vnd.github+json" \
+                    https://api.github.com/repos/${{ github.repository }}/issues/$PR/comments \
+                    -d "{\"body\":\"$WARNING_MSG (file: $file)\"}"
+                fi
+              fi
+            done
+          done < <(git ls-files '*.{clj,cljc,edn,sh,py,js,ts}' -z)
+
+          if (( violations > 0 )); then
+            echo "❌ $violations prohibited pattern(s) found – job will fail."
