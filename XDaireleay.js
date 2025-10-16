@@ -19,7 +19,7 @@ const ContractLoader = function(contractList,web3){
   }
   return contracts
 }
-
+ 
 var bodyParser = require('body-parser')
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
