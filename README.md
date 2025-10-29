@@ -1,4 +1,4 @@
-
+https://patreon.com/VersoriumX?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink
 **VersoriumX/VersoriumX** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 ##VersoriumX: Revolutionizing Music Copyright with AI & Web3 ✨ Seamlessly Integrating AI and Web3 Technology for Content Creators Dive into the future of music copyright with VersoriumX, where AI meets decentralized technology. We're providing creators with a platform to leverage NFTs for proof of ownership and simplified royalty management. ### Implementation Plan (6 Months) We're committed to delivering a comprehensive solution through a phased approach: 
 **Month 1-2: Core Web3 Development** * Smart Contract Development: Create and test the Vyper smart contracts for NFT royalties and tracking. * Decentralized Storage: Implement Pinata for secure content storage on IPFS. 
