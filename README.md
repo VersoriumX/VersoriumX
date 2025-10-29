@@ -10,7 +10,7 @@
      * * Efficient Search: Quickly find music copyrights and ownership details with our AI-powered search engine. * Creator Control: Maintain control over royalty streams and engage your audience through a dedicated API. We believe this approach will position VersoriumX as a valuable platform for music creators. 
 
 ###Ask our chatbot:
-## desing and intentionality at VersoriumX! our medels use man newly desinged algos. defined by structural purpose! The Micah Moral Compass (MMC) Algorithm: A Conceptual Design
+## Designed with intentionality at VersoriumX! our medels use man newly desinged algos. defined by structural purpose! The Micah Moral Compass (MMC) Algorithm: A Conceptual Design
 Authorship and Intellectual Property Declaration:
 Algorithm Name: Micah Moral Compass (MMC)
 Original Creator & Author: Travis Jerome Goff (TJG)
